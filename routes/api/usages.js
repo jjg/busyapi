@@ -5,7 +5,7 @@ module.exports = function(app){
         app.usages.push(req.body);
 
         var usageId = app.usages.length;
-        console.log('Stored usage count: ' + usageId);
+        // console.log('Stored usage count: ' + usageId);
 
         res.status(201).json({'id':usageId});
     });

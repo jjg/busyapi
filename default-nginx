@@ -1,0 +1,15 @@
+# Default server configuration
+#
+
+upstream api_servers {
+    least_conn;
+    server 172.28.128.4:3000;
+    server 172.28.128.5:3010;
+}
+
+server {
+	listen 80 default_server;
+	location / {
+        	proxy_pass http://api_servers;
+    }
+}
