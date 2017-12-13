@@ -1,2 +1,6 @@
 *swp
 node_modules
+.idea
+.vagrant
+*.log
+package-lock.json
