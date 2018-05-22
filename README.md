@@ -35,6 +35,24 @@ The API consists of a single endpoint which receives data when a patient uses th
 
      curl -X POST -H "Content-Type: application/json" --data '{"patientId":"100","timestamp":"Tue Nov 01 2016 09:11:51 GMT-0500 (CDT)","medication":"Albuterol"}' http://localhost:3000/api/usages
 
+
+````
+
+**curl test**
+   time curl -s -X POST -H "Content-Type: application/json" --data '{"patientId":"100","timestamp":"Tue Nov 01 2016 09:11:51 GMT-0500 (CDT)","medication":"Albuterol"}' http://localhost:3000/api/usages?[1-10000]  
+
+    
+````
+
+**loadtest**
+
+     Reference: https://www.npmjs.com/package/loadtest
+     npm install loadtest -g --save
+
+     \\ goal: 1M/min
+     loadtest -n 1000000 -t 60 -c 8 -H "Content-Type: application/json" --data '{"patientId":"100","timestamp":"Tue Nov 01 2016 09:11:51 GMT-0500 (CDT)","medication":"Albuterol"}' http://localhost:3000/api/usages
+
+
 **Response**
 ````
 {
